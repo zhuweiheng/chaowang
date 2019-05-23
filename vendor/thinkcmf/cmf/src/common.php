@@ -273,14 +273,10 @@ function cmf_password_old($pw)
  */
 function cmf_compare_password($password, $passwordInDb)
 {
-    var_dump($passwordInDb);
+
     if (strpos($passwordInDb, "###") === 0) {
-        var_dump(cmf_password($password));
-        var_dump("1111=>".cmf_password($password) == $passwordInDb);
         return cmf_password($password) == $passwordInDb;
     } else {
-        var_dump(cmf_password_old($password) == $passwordInDb);
-
         return cmf_password_old($password) == $passwordInDb;
     }
 }
