@@ -1,0 +1,95 @@
+.clear{
+	clear: both;
+}
+.search_c{
+	width: auto;
+	height: 100px;
+	position: relative;
+	float: left;
+	margin-left: 40px;
+}
+.s_up{
+	width: 288px;
+	position: absolute;
+	top:43px;
+}
+.s_text{
+	
+	width:215px;
+	height: 30px; 
+}
+.s_btn{
+	width: 65px;
+	height: 34px;
+	position: absolute;
+	right: 4px;
+	background-color: #0067be;
+	color: #fff;
+}
+.s_keywords{
+    position: absolute;
+    width: 260px;
+    height: 20px;
+    overflow: hidden;
+    bottom: -2px;
+    font-size: 16px;
+}
+.s_keywords a{
+	font-size: 12px;
+	color:#999999;
+}
+.tel_r{
+	float: right;
+	margin: 35px 20px;
+}
+.footer{
+	width: 1200px;
+	height: 275px;
+	padding: 20px 0px;
+	margin:0 auto;
+
+}
+.footer_l{
+	float: left;
+	width: 400px;
+}
+.footer_l .tel_box{
+	width: 400px;
+	height: 100px;
+	margin-top: 20px;
+	font-size: 32px;
+	color: #333333;
+	position: relative;
+}
+.footer_l .tel_box span{
+	display: block;
+	color: #b5b9ba;
+	font-size: 18px;
+}
+.footer_r{
+	width: 800px;
+	height: 275px;
+	float: left;
+	overflow: hidden;
+}
+.footer_r li{
+	width: 100px;
+	height: 275px;
+	overflow: hidden;
+	font-size: 22px;
+	margin:0px 30px;
+	text-align: center;
+	float: left;
+}
+.footer_r li a{
+	display: block;
+	width: 100px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 17px;
+	margin: 5px 0px;
+	color: #b3b9b9;
+	float: left;
+
+
+}

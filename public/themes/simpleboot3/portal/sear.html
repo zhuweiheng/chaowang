@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{$site_info.site_name|default=''}</title>
+	<meta charset="UTF-8">
+	<taglib name="app\portal\taglib\Portal"/>
+
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/css/public.css">
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/css/search.css">
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/css/swiper.min.css">
+
+<!-- 	<link href="__TMPL__/public/assets/simpleboot3/themes/simpleboot3/bootstrap.min.css" rel="stylesheet">
+	<link href="__TMPL__/public/assets/simpleboot3/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"
+      type="text/css"> -->
+	<script type="text/javascript" src="__TMPL__/public/assets/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="__TMPL__/public/assets/js/swiper.min.js"></script>
+</head>
+<body>
+	<!-- 引入头部文件 -->
+	<include file="public@headtop">
+	<div class="nav">
+		<div class="nav_menu">
+			<ul>
+                <navigation nav-id="" root="" id="main-navigation" class="nav navbar-nav navbar-nav-custom"
+                            max-level="0">
+                    <navigationMenu>
+                        <if condition="$level gt 1">
+                            <li class="menu-item menu-item-level-{$level} levelgt1">
+                                <a href="{$menu.href|default=''}" target="{$menu.target|default=''}">
+                                    {$menu.name|default=''}
+                                </a>
+                            </li>
+                            <else/>
+                            <li class="menu-item menu-item-level-{$level}">
+                                <a href="{$menu.href|default=''}" target="{$menu.target|default=''}">
+                                    {$menu.name|default=''}
+                                </a>
+                            </li>
+                        </if>
+                    </navigationMenu>
+                    <navigationFolder root="li"
+                                      class="dropdown dropdown-custom dropdown-custom-level-{$level}"
+                                      dropdown="ul"
+                                      dropdown-class="dropdown-menu dropdown-menu-level-{$level}">
+                        <a href="#" class="dropdown-toggle dropdown-toggle-{$level}" data-toggle="dropdown">
+                            {$menu.name|default=''}<span class="caret"></span>
+                        </a>
+                    </navigationFolder>
+                </navigation>
+			</ul>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div class="main">
+		<div class="container tc-main">
+			<div class="row">
+				<div class="col-md-9">
+					<div class="main-title">
+						<h3>'{$keyword}' 搜索结果 </h3>
+					</div>
+					<php>
+						$where=function($query)use($keyword){
+						$query->where('post.create_time','egt',0)->where('post.post_title','like',"%$keyword%");
+						};
+					</php>
+
+					<portal:articles item="vo" where="$where" order="post.create_time DESC" page="10">
+
+						<div class="list-boxes">
+							<h2><a href="{:cmf_url('portal/Article/index',array('id'=>$vo['id']))}">{$vo.post_title}</a>
+							</h2>
+							<p>{$vo.post_excerpt}</p>
+							<div>
+								<div class="pull-left">
+									<div class="list-actions">
+										<img src="/public/themes/simpleboot3/public/assets/images/readicon_03.png">
+										<span>阅读数：{$vo.post_hits}</span>
+<!-- 										<a href="javascript:;"><i class="fa fa-eye"></i><span>{$vo.post_hits}</span></a>
+										<a href="{:cmf_url('portal/Article/doLike',array('id'=>$vo['id']))}"
+										   class="js-count-btn"><i class="fa fa-thumbs-up"></i><span class="count">{$vo.post_like}</span></a>
+
+											<i class="fa fa-star-o"></i>
+										</a> -->
+									</div>
+								</div>
+								<a class="btn btn-info btn-sm pull-right"
+								   href="{:cmf_url('portal/Article/index',array('id'=>$vo['id']))}">查看更多</a>
+							</div>
+						</div>
+					</portal:articles>
+					<div class="pagination">
+						<page/>
+					</div>
+
+				</div>
+				
+			</div>
+		</div>
+		<div class="wid_blue">
+			<span>验厂找超网，真的不用烦</span>
+		</div>
+	</div>
+	<include file="public@footer"/>
+
+<include file="public@scripts"/>
+</body>
+</html>

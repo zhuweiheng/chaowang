@@ -1,0 +1,33 @@
+{
+    "name": "验厂项目列表也",
+    "action": "portal/Factory/details",
+    "description": "文章列表模板文件",
+    "order": 10.0,
+    "more": {
+        "vars": {
+
+        },
+        "widgets":{
+            "hottest_articles": {
+                "title": "热门验厂",
+                "display": "1",
+                "vars": {
+                    "hottest_articles_category_id": {
+                        "title": "文章分类ID",
+                        "value": "",
+                        "type": "text",
+                        "dataSource": {
+                            "api": "portal/category/index",
+                            "multi": true
+                        },
+                        "placeholder": "请选择分类",
+                        "tip": "",
+                        "rule": {
+                            "require": true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

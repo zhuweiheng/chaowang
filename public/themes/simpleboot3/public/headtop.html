@@ -1,0 +1,24 @@
+<div class="header w1200 auto of pt10">
+		<div class="logo l">
+			<img src="__TMPL__/public/assets/images/logo.png" width="645">			
+		</div>
+		<div class="search_c">
+			<form method="post" action="{:cmf_url('portal/Search/index')}">
+				<div class="s_up">
+					<input type="text" class="s_text" name="keyword" placeholder="Search"
+                           value="{:input('param.keyword','')}">
+					<button class="btn s_btn">搜索</button>
+				</div>				
+			</form>
+			<div class="s_keywords">
+				<span>热门搜索：</span>
+				<volist name="tagHotData" id="vo">
+					<a href="{:url('tag/index',array('id'=>$vo.id))}">{$vo.name}</a>
+				</volist>
+				
+			</div>
+		</div>
+		<div class="tel_r">
+			<img src="__TMPL__/public/assets/images/telnum.png">
+		</div>
+	</div>

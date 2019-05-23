@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>首页 {$site_info.site_name|default=''}</title>
+	<taglib name="app\portal\taglib\Portal"/>
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/css/index.css">
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/css/public.css">
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/css/swiper.min.css">
+    <link href="__TMPL__/public/assets/css/slippry/slippry.css" rel="stylesheet">
+	
+	<script type="text/javascript" src="__TMPL__/public/assets/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="__TMPL__/public/assets/js/swiper.min.js"></script>
+</head>
+<body>
+	<include file="public@headtop">
+	<div class="nav">
+		<div class="nav_menu">
+			<ul>
+                <navigation nav-id="" root="" id="main-navigation" class="nav navbar-nav navbar-nav-custom"
+                            max-level="0">
+                    <navigationMenu>
+                        <if condition="$level gt 1">
+                            <li class="menu-item menu-item-level-{$level} levelgt1">
+                                <a href="{$menu.href|default=''}" target="{$menu.target|default=''}">
+                                    {$menu.name|default=''}
+                                </a>
+                            </li>
+                            <else/>
+                            <li class="menu-item menu-item-level-{$level}">
+                                <a href="{$menu.href|default=''}" target="{$menu.target|default=''}">
+                                    {$menu.name|default=''}
+                                </a>
+                            </li>
+                        </if>
+                    </navigationMenu>
+                    <navigationFolder root="li"
+                                      class="dropdown dropdown-custom dropdown-custom-level-{$level}"
+                                      dropdown="ul"
+                                      dropdown-class="dropdown-menu dropdown-menu-level-{$level}">
+                        <a href="#" class="dropdown-toggle dropdown-toggle-{$level}" data-toggle="dropdown">
+                            {$menu.name|default=''}<span class="caret"></span>
+                        </a>
+                    </navigationFolder>
+                </navigation>
+<!-- 				<li><a href="#">首页</a></li>
+				<li><a href="#">验厂项目</a></li>
+				<li><a href="#">认证项目</a></li>
+				<li><a href="#">产品服务</a></li>
+				<li><a href="#">验厂常见问题</a></li>
+				<li><a href="#">成功案例</a></li>
+				<li><a href="#">联系我们</a></li> -->
+			</ul>
+		</div>
+	</div>
+	<div class="main">
+		<!-- 顶部广告 -->
+		<ul id="home-slider" class="list-unstyled">
+		    <php>
+		        $top_slide_id=empty($theme_vars['top_slide'])?1:$theme_vars['top_slide'];
+		    </php>
+		    <slides id="$top_slide_id">
+		        <li>
+		            <div class="caption-wraper">
+		                <div class="caption">{$vo.title|default=''}</div>
+		            </div>
+		            <a href="{$vo.url|default=''}"><img src="{:cmf_get_image_url($vo.image)}" alt=""></a>
+		        </li>
+		    </slides>
+		    <noslides id="$top_slide_id">
+		        <li>
+		            <div class="caption-wraper">
+		                <div class="caption">此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！</div>
+		            </div>
+		            <a href=""><img src="__TMPL__/public/assets/images/demo/1.jpg" alt=""></a>
+		        </li>
+		        <li>
+		            <div class="caption-wraper">
+		                <div class="caption">此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！</div>
+		            </div>
+		            <a href=""><img src="__TMPL__/public/assets/images/demo/2.jpg" alt=""></a>
+		        </li>
+		        <li>
+		            <div class="caption-wraper">
+		                <div class="caption">此幻灯片只是演示,您没有设置任何幻灯片,请到后台模板设置！</div>
+		            </div>
+		            <a href=""><img src="__TMPL__/public/assets/images/demo/3.jpg" alt=""></a>
+		        </li>
+		    </noslides>
+		</ul>
+		<!-- 顶部广告结束 -->
+		<!-- 全程服务信息 -->
+		<div class="service">
+			<div class="s_title">
+				<b>一条龙服务</b>
+			</div>
+			<div class="b_title">
+				<span>申请、辅导、整改全程服务</span>
+			</div>
+			<div class="ser_tab">
+				<ul>
+					<li><img src="__TMPL__/public/assets/images/tab01.png"></li>
+					<li><img src="__TMPL__/public/assets/images/tab02.png"></li>
+					<li><img src="__TMPL__/public/assets/images/tab03.png"></li>
+					<li><img src="__TMPL__/public/assets/images/tab04.png"></li>
+					<li><img src="__TMPL__/public/assets/images/tab05.png"></li>
+				</ul>
+			</div>
+		</div>
+		<!-- 全程服务信息结束 -->
+		<!-- 体系认证开始 -->		
+		<div class="service">
+			<div class="s_title">
+				<b>了解体系认证</b>
+			</div>
+			<div class="b_title">
+				<span>超网专注体系认证咨询20年 10000+企业的选择</span>
+			</div>
+			<div class="s_lable">
+				<ul>
+					<volist name="rz_cateData" id="vo">
+					<li><a href="{:url('factory/details',array('id'=>$vo['id']))}">{$vo.name}</a></li>
+					</volist>
+				</ul>
+			</div>
+			<div class="clear"></div>
+			<div class="lab_info">
+				<volist name="rz_cateData" id="vo" length="4">
+				<div class="p_div">
+					<h3 class="h_tit">{$vo.name}</h3>
+					<div class="lab_info_cont">
+						<div class="img_c">
+							<img src="/upload/{$vo.thumbnail}">
+						</div>
+						<ul class="lab_info_list">
+							<volist name="vo.articles" id="vo1" length="5">
+							<li><a class="ar-tit" href="{:url('article/index',array('id'=>$vo1.post_id))}"><span>{$vo1.post_title}</span></a></li>
+							</volist>
+						</ul>
+						<div class="clear"></div>
+						<a class="more_btn" href="{:url('factory/details',array('id'=>$vo['id']))}">+查看更多</a>
+					</div>
+				</div>
+				</volist>
+			</div>
+		</div>
+		<!-- 体系认证开始结束 -->
+		<!-- 验厂咨询图 -->
+		<div class="yan-img">
+			<img src="__TMPL__/public/assets/images/yantel.png">
+		</div>
+		<!-- 验厂咨询图结束 -->
+		<!-- 了解客户验厂开始 -->
+		<div class="service">
+			<div class="s_title">
+				<b>了解客户验厂</b>
+			</div>
+			<div class="b_title">
+				<span>超网专注验厂咨询20年 10000+企业的选择</span>
+			</div>
+			<div class="s_lable">
+				<ul>
+					<volist name="yc_cateData" id="vo" length="20">
+					<li><a href="{:url('factory/details',array('id'=>$vo['id']))}">{$vo.name}</a></li>
+					</volist>
+				</ul>
+			</div>
+			<div class="clear"></div>
+			<div class="lab_info">
+				<volist name="yc_cateData" id="vo" length="4">
+				<div class="p_div">
+					<h3 class="h_tit">{$vo.name}</h3>
+					<div class="lab_info_cont">
+						<div class="img_c">
+							<img src="/upload/{$vo.thumbnail}">
+						</div>
+						<ul class="lab_info_list">
+							<volist name="vo.articles" id="vo1" length="5">
+							<li><a class="ar-tit" href="{:url('article/index',array('id'=>$vo1.post_id))}"><span>{$vo1.post_title}</span></a></li>
+							</volist>
+						</ul>
+						<div class="clear"></div>
+						<a class="more_btn" href="{:url('factory/details',array('id'=>$vo['id']))}">+查看更多</a>
+					</div>
+				</div>
+				</volist>
+			</div>			
+		</div>
+		<!-- 了解客户验厂结束 -->
+		<!-- 合作流程 -->
+		<div class="service">
+			<div class="s_title">
+				<b>合作流程</b>
+			</div>
+			<div class="b_title">
+				<span>服务流程规范，成果更有保障</span>
+			</div>
+			<div class="bag-img">
+				<img src="__TMPL__/public/assets/images/services.png">
+			</div>
+		</div>
+		<!-- 合作流程结束 -->
+		<!-- 验厂咨询图 -->
+		<div class="yan-img">
+			<img src="__TMPL__/public/assets/images/yantel.png">
+		</div>
+		<!-- 验厂咨询图结束 -->
+		<!-- 万家工厂 -->
+		<div class="service">
+			<div class="s_title">
+				<b>他们一直选择超网咨询</b>
+			</div>
+			<div class="b_title">
+				<span>成功辅导超万家工厂，实例胜于雄辩</span>
+			</div>
+			<div class="hanye-list">
+				<ul>
+					<volist name="hy_cateData" id="vo">
+					<li>
+						<div>						
+							<div class="border-r">
+								<img src="/upload/{$vo.thumbnail}">
+							</div>
+							<span>{$vo.name}</span>
+						</div>
+
+					</li>
+					</volist>
+					<li class="last_li">
+						<div>						
+							<div class="zixun">
+								马上咨询>
+							</div>
+							<span>欢迎致电</span>
+						</div>
+
+					</li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<!-- 万家工厂结束 -->
+		<!-- 客户见证 -->
+		<div class="client">
+			<div class="client-hr">
+				<span>客户见证</span>
+			</div>
+			<div class="swiper-container">
+			    <div class="swiper-wrapper">
+			        <div class="swiper-slide"><img src="__TMPL__/public/assets/images/cus.png"></div>
+			        <div class="swiper-slide"><img src="__TMPL__/public/assets/images/cus.png"></div>
+			        <div class="swiper-slide"><img src="__TMPL__/public/assets/images/cus.png"></div>
+			        <div class="swiper-slide"><img src="__TMPL__/public/assets/images/cus.png"></div>
+			        <div class="swiper-slide"><img src="__TMPL__/public/assets/images/cus.png"></div>
+			    </div>			    
+			    <!-- 如果需要导航按钮 -->
+			    <div class="swiper-button-prev"></div>
+			    <div class="swiper-button-next"></div>
+
+			</div>
+
+		</div>
+		<!-- 客户见证结束 -->
+		<!-- 客户评价 -->
+		<div class="client">
+			<div class="client-hr">
+				<span>客户评价</span>
+			</div>
+			<div class="bag-img">
+				<img src="__TMPL__/public/assets/images/comment.png">
+			</div>
+		</div>
+		<!-- 客户评价结束 -->
+		<!-- 咨询图 -->
+		<div class="yan-img">
+			<img src="__TMPL__/public/assets/images/clitel.png">
+		</div>
+		<!-- 咨询图结束 -->
+		<!-- 超网咨询 -->
+		<div class="service">
+			<div class="s_title">
+				<b>超网咨询-6大服务承诺</b>
+			</div>
+			<div class="b_title">
+				<span>20年始终坚守使命，深受客户信赖</span>
+			</div>
+			<div class="bag-img">
+				<img src="__TMPL__/public/assets/images/chengnuo.png">
+			</div>
+		</div>
+		<!-- 超网咨询结束 -->
+		<!-- 关于超网咨询 -->
+		<div class="service">
+			<div class="s_title">
+				<b>关于超网咨询</b>
+			</div>
+			<div class="b_title">
+				<span>20年专注验厂，绝不外包，为客户负责到底</span>
+				<span class="bg-blue">秉承使命-致力于中小企业业务及盈利的可持续性</span>
+			</div>
+			<div class="about_show">
+				<div class="show_box">
+					<ul>
+						<li><img src="__TMPL__/public/assets/images/chuyou.png"><span>公司出游</span></li>
+						<li><img src="__TMPL__/public/assets/images/company_img.png"><span>公司前台</span></li>
+						<li><img src="__TMPL__/public/assets/images/bangong.png"><span>办公室环境</span></li>
+						<li><img src="__TMPL__/public/assets/images/nianhui.png"><span>举办年会</span></li>
+					</ul>
+				</div>
+			</div>
+			<div class="wid_blue">
+				<span>验厂找超网，真的不用烦</span>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<!-- 关于超网咨询结束 -->
+	</div>
+	<include file="public@footer"/>
+</body>
+ 	<!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 5,
+      spaceBetween: 30,
+      slidesPerGroup: 5,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+  <script src="__TMPL__/public/assets/js/slippry.min.js"></script>
+<script>
+    $(function () {
+        $("#home-slider").slippry({
+            transition: 'fade',
+            useCSS: true,
+            captions: false,
+            speed: 1000,
+            pause: 3000,
+            auto: true,
+            preload: 'visible'
+        });
+        $("#home-slider").show();
+    });
+</script>
+</html>

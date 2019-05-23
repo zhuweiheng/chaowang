@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{$site_info.site_name|default=''}</title>
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/css/public.css">
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/css/details.css">
+	<link rel="stylesheet" type="text/css" href="__TMPL__/public/assets/css/swiper.min.css">
+	<!-- <link href="__TMPL__/public/assets/simpleboot3/themes/simpleboot3/bootstrap.min.css" rel="stylesheet"> -->
+	<script type="text/javascript" src="__TMPL__/public/assets/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="__TMPL__/public/assets/js/swiper.min.js"></script>
+</head>
+<body>
+	<!-- 引入头部文件 -->
+	<include file="public@headtop">
+	<div class="nav">
+		<div class="nav_menu">
+			<ul>
+                <navigation nav-id="" root="" id="main-navigation" class="nav navbar-nav navbar-nav-custom"
+                            max-level="0">
+                    <navigationMenu>
+                        <if condition="$level gt 1">
+                            <li class="menu-item menu-item-level-{$level} levelgt1">
+                                <a href="{$menu.href|default=''}" target="{$menu.target|default=''}">
+                                    {$menu.name|default=''}
+                                </a>
+                            </li>
+                            <else/>
+                            <li class="menu-item menu-item-level-{$level}">
+                                <a href="{$menu.href|default=''}" target="{$menu.target|default=''}">
+                                    {$menu.name|default=''}
+                                </a>
+                            </li>
+                        </if>
+                    </navigationMenu>
+                    <navigationFolder root="li"
+                                      class="dropdown dropdown-custom dropdown-custom-level-{$level}"
+                                      dropdown="ul"
+                                      dropdown-class="dropdown-menu dropdown-menu-level-{$level}">
+                        <a href="#" class="dropdown-toggle dropdown-toggle-{$level}" data-toggle="dropdown">
+                            {$menu.name|default=''}<span class="caret"></span>
+                        </a>
+                    </navigationFolder>
+                </navigation>
+<!-- 				<li><a href="#">首页</a></li>
+				<li><a href="#">验厂项目</a></li>
+				<li><a href="#">认证项目</a></li>
+				<li><a href="#">产品服务</a></li>
+				<li><a href="#">验厂常见问题</a></li>
+				<li><a href="#">成功案例</a></li>
+				<li><a href="#">联系我们</a></li> -->
+			</ul>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<!-- 页面主体 -->
+	<div class="main">
+		<!-- 位置导航信息 -->
+		<div class="url_site">
+			您当前的位置：首页>
+			<a href="#">验厂服务></a>
+			<a href="#">{$detailsData.name}</a>
+		</div>
+		<!-- 位置导航信息结束 -->
+		<!-- 验厂详情 -->
+		<div class="yc_box">
+			<div class="details_l">
+				<div class="brand_img"><img src="/upload/{$detailsData.more.thumbnail}"></div>
+				<div class="details_name">{$detailsData.name}</div>
+			</div>
+			<div class="details_r">
+				<b>{$detailsData.name}</b>
+				<h3>项目简介：</h3>
+				<p>{$detailsData.description}</p>
+				<div class="menu_list">
+					<a href="#" class="btn_blue">免费在线咨询</a>
+					<a href="#" class="btn_u">在线申请</a>
+					<a href="#" class="btn_u">在线预审</a>
+				</div>
+				<div class="kefu_tel">
+					<img src="__TMPL__/public/assets/images/big_TEL1.png">
+					<span class="tel_tit"><b>全国客服热线：</b></span>
+					<span class="tel_num">400-9000-9000</span>
+				</div>
+			</div>
+		</div>
+		<!-- 验厂详情结束 -->
+		<!-- 相关知识 -->
+		<div class="knowledge_box">
+			<div class="knowledge">
+				<div class="knowledge_l">
+					<div class="know_title">
+						<a href="#">相关知识</a>
+					</div>
+					<div class="know_main">
+						<ul class="know_list">
+							<volist name="factory" id="vo">
+							<li>
+								<div class="list_div">
+									<a class="yc_titile" href="{:url('article/index',array('id'=>$vo.post_id))}">{$vo.post_title}</a>
+									<a class="read_all" href="{:url('article/index',array('id'=>$vo.post_id))}">阅读全文</a>
+									<p>{$vo.post_excerpt}</p>
+									<span class="lable">标签:FCCA验厂</span>
+									<div class="readnum">
+										<img src="__TMPL__/public/assets/images/readicon_03.png">
+										阅读数:{$vo.post_hits}
+									</div>
+								</div>
+							</li>
+							</volist>
+						</ul>
+							<ul class="pagination">{$factory->render()}</ul>
+					</div>
+				</div>
+<!-- <php>
+	print_r($theme_widgets['hottest_articles']);//记得要判断一下这个控件是否存在!
+</php> -->
+				<div class="knowledge_r">
+				<!-- 热门验厂 -->
+				<div class="yc_hot_box">
+					<div class="hot_tit_box">
+						<div class="border_blue"><span>热门验厂</span></div>
+						<span>HOT PROJECT</span>
+						<a href="#">更多+</a>
+					</div>
+					<ul class="hot_brandlist">
+						<volist name="factoryHot" id="vo">
+							<li><a href="{:url('article/index',array('id'=>$vo.post_id))}"><img src="/upload/{$vo.thumbnail}"><span>{$vo.post_title}</span></a></li>
+						</volist>
+					</ul>
+				</div>
+				<!-- 热门验厂结束 -->
+
+				<!-- 咨询电话 -->
+				<div class="tel_box">
+					<div class="tel_tit_box">
+						<div class="border_blue"><span>我们就在你身边</span></div>
+						<a href="#">更多+</a>
+					</div>
+					<div class="address_tel_box">
+						{$telData.post_content|html_entity_decode}
+					</div>
+				</div>
+				<!-- 咨询电话结束 -->
+				<!-- 验厂客户 -->
+				<div class="tel_box mb25">
+					<div class="tel_tit_box">
+						<div class="border_blue"><span>验厂成功客户</span></div>
+						<a href="#">更多+</a>
+					</div>
+					<div class="address_tel_box">
+						{$ycSuccessData.post_content|html_entity_decode}
+					</div>
+				</div>
+				<!-- 验厂客户结束 -->
+				</div>
+				<div class="clear"></div>	
+			</div>
+		</div>
+		<!-- 相关知识结束 -->
+		<div class="wid_blue">
+			<span>验厂找超网，真的不用烦</span>
+		</div>
+	</div>
+<include file="public@footer"/>
+</body>
+</html>

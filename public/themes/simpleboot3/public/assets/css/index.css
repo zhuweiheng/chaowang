@@ -1,0 +1,386 @@
+.clear{
+	clear: both;
+}
+.search_c{
+	width: auto;
+	height: 100px;
+	position: relative;
+	float: left;
+	margin-left: 40px;
+}
+.s_up{
+	width: 288px;
+	position: absolute;
+	top:43px;
+}
+.s_text{
+	
+	width:215px;
+	height: 30px; 
+}
+.s_btn{
+	width: 65px;
+	height: 34px;
+	position: absolute;
+	right: 4px;
+	background-color: #0067be;
+	color: #fff;
+}
+.s_keywords{
+    position: absolute;
+    width: 260px;
+    height: 20px;
+    overflow: hidden;
+    bottom: -2px;
+    font-size: 16px;
+}
+.s_keywords a{
+	font-size: 12px;
+	color:#999999;
+}
+.tel_r{
+	float: right;
+	margin: 35px 20px;
+}
+
+.nav{
+	width: 100%;
+	height: 55px;
+	background: #0067be;
+}
+.nav_menu{
+	width: 1200px;
+	height: 55px;
+	margin: 0px auto;
+}
+.nav_menu ul li{
+	display: inline-block;
+
+}
+.nav_menu ul li a{
+	width: auto;
+	height: 55px;
+	line-height: 55px;
+	display: block;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	padding: 0px 18px;
+}
+.nav_menu ul li a:hover{
+	background-color: #e70012;
+}
+.ad_top{
+	margin: 0px auto;
+	width: 1348px;
+	height: auto;
+}
+.ad_top img{
+	width: 100%;
+}
+
+.service .s_title{
+	margin: 0px auto;
+	font-size: 42px;
+	color: #2d2d2d;
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 15px;
+}
+.service .b_title{
+	margin: 0px auto;
+	font-size: 36px;
+	font-weight: 100px;
+	color: #2d2d2d;
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 30px;
+}
+.service .b_title .bg-blue{
+	margin: 10px auto;
+	display: block;
+	width: 600px;
+	height: 32px;
+	font-size: 26px;
+	line-height: 32px;
+	background-color: #0064ac;
+	color: #fff;
+}
+.service .ser_tab{
+	margin: 0px auto;
+	width: 1200px;
+	padding: 10px;
+	text-align: center;
+}
+.service .ser_tab ul{
+	width: auto;
+	height: 220px;
+	overflow: hidden;
+}
+.service .ser_tab ul li{
+	width: 220px;
+	height: 200px;
+	display:inline-block;
+	overflow: hidden;
+	margin: 5px;
+	border: 2px dotted #b0b0b0;
+	border-radius: 5px;
+}
+.service .s_lable{
+	width: 1200px;
+	height: 80px;
+	margin: 0px auto;
+	padding: 10px;
+}
+.service .s_lable ul li{
+	display: block;
+	float: left;
+	width: 120px;
+	height: 32px;
+	line-height: 32px;
+	margin: 5px 5px;
+	background-color: #e1e1e1;
+	border-radius: 3px;
+	font-size: 18px;
+	text-align: center;
+	color: #616161;
+}
+.service .lab_info{
+	width: 1200px;
+	height: 400px;
+	margin-top:30px;
+	margin: 10px auto;
+	padding: 5px 6px;
+}
+.service .lab_info .p_div{
+	width: 278px;
+	height: 360px;
+	margin: 5px 6px;
+	border:1px solid #b0b0b0;
+	border-radius:5px;
+	float: left;
+}
+.lab_info div .h_tit{
+	width: 258px;
+	height: 32px;
+	line-height: 32px;
+	background-color: #0270bb;
+	border-radius: 4px 4px 0 0;
+	color: #fff;
+	padding-left: 20px;
+}
+.lab_info_cont{
+	width: 278px;
+	height: 360px;
+
+}
+.lab_info_cont .img_c{
+	width: 278px;
+	height: 140px;
+	overflow: hidden;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+.lab_info_cont div img{
+		width: 135px;
+	display: block;
+	margin: 0px auto;
+	overflow: hidden;
+}
+.lab_info_list{
+	font-size: 12px;
+	list-style-type:disc;
+	width: 250px;
+	height: 125px;
+	float: right;
+
+}
+.lab_info_list .ar-tit{
+	font-family: arial;
+	color: #666;
+}
+.lab_info_list li span{
+	display: block;
+	width: 240px;
+	height: 25px;
+	line-height: 25px;
+	overflow: hidden;
+}
+.lab_info_cont .more_btn{
+	display: block;
+	width: 110px;
+	height: 35px;
+	text-align: center;
+	background-color:#329eff;
+	border-radius:5px;
+	color: #fff;
+	line-height: 35px;
+	font-size: 16px;
+	margin: 10px auto;
+}
+.yan-img{
+	width: 1200px;
+	height: 100px;
+	margin: 0 auto;
+	text-align: center;
+}
+.bag-img{
+	width: 1200px;
+	margin: 0px auto;
+	padding-bottom: 30px;
+}
+.hanye-list{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+.hanye-list li{
+	display: block;
+	float: left;
+	width: 200px;
+	height: 250px;
+}
+.hanye-list li div{
+	margin: 0px auto;
+	padding: 8px;
+
+}
+.hanye-list li .border-r{
+	border:1px solid #e1e1e1;
+	width: 170px;
+	height: 170px;
+	border-radius: 90px;
+	overflow: hidden;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+.hanye-list li .border-r img{
+	width: 165px;
+}
+.hanye-list li span{
+	display: block;
+	margin-top:15px;
+	font-size: 22px;
+	color: #2d2d2d;
+	text-align: center;
+}
+.last_li .zixun{
+	background-color: #f48d48;
+	border:1px solid #e1e1e1;
+	width: 170px;
+	height: 170px;
+	border-radius: 90px;
+	text-align: center;
+	line-height: 170px;
+	color: #fff;
+	font-size: 32px;
+}
+.client{
+	width: 1200px;
+	margin: 30px auto;
+	padding-top: 30px;
+}
+.client .client-hr{
+	width: 1000px;
+	margin: 0px auto;
+	height: 30px;
+	border-top:2px dashed #e1e1e1;
+	position: relative;
+}
+.client .client-hr span{
+	display: block;
+	background-color: #ffffff;
+	position: absolute;
+	top:-20px;
+	left: 50%;
+	padding:0px 5px;
+	transform: translate(-50%);
+	font-size: 32px;
+	color: #2d2d2d; 
+}
+
+.poster-main {
+	margin: 0 auto;
+  position: relative;
+
+}
+
+.poster-main a, .poster-main img { display: block; width: 100%; height: 100%;}
+.poster-main img{ }
+.poster-main .poster-list {
+  width: 1000px;
+  height: 500px;
+}
+
+.poster-main .poster-list .poster-item {
+  width: 200px;
+  height: 500px;
+  position: absolute;
+  left: 0;
+  top: 0;
+ 
+}
+
+.poster-main .poster-btn {
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+  filter: opacity(.5) brightness(1);
+}
+.poster-main .poster-btn:hover{ filter: opacity(1) brightness(2); }
+
+.poster-main .poster-prev-btn {
+  left: 0;
+  background: url(left.png) no-repeat center center;
+}
+
+.poster-main .poster-next-btn {
+  right: 0;
+  background: url(right.png) no-repeat center center;
+}
+.poster-item-title{
+	font-size: 18px;
+	text-align: center;
+	line-height: 48px;
+	display: block;
+}
+.about_show{
+	width: 100%;
+	height: 306px;
+	background-color: #f5f5f5;
+	margin:0 auto;
+
+}
+.about_show .show_box{
+	width: 1200px;
+	height: 306px;
+	padding: 36px;
+	margin: 0 auto;
+}
+.about_show .show_box li{
+	display: block;
+	float: left;
+	margin: 0px 10px;
+}
+.about_show .show_box li span{
+	display: block;
+    margin-top: 15px;
+    font-size: 22px;
+    color: #2d2d2d;
+    text-align: center;
+}
+.wid_blue{
+	width: 100%;
+	height: 104px;
+	background-color: #0064ac;
+	color: #fff;
+	font-size: 36px;
+	text-align: center;
+	line-height:104px;
+}
+.footer{
+	width: 1200px;
+	margin: 0 auto;
+}

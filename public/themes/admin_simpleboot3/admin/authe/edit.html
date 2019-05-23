@@ -1,0 +1,58 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('authe/index')}">认证列表</a></li>
+        <li><a href="{:url('authe/add')}">添加认证</a></li>
+        <li class="active" ><a>认证编辑</a></li>
+    </ul>
+    <form method="post" class="form-horizontal margin-top-20" action="{:url('authe/editPost')}">
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="form-required">*</span>名称:</label>
+            <div class="col-md-6 col-sm-10">
+                <input type="hidden" name="id" value="{$id}">
+                <input type="text" class="form-control" name="name" value="{$name}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="form-required">*</span>logo:</label>
+            <div class="col-md-6 col-sm-10">
+                <input id="photo-1" type="hidden" name="photo_url" value="{$photo_url}">
+                <input id="photo-1-name" type="text" name="photo_name" title="图片名称" value="{$photo_name}">
+                <img id="photo-1-preview" src="/upload/{$photo_url}">
+                <a href="javascript:uploadOneImage('图片上传','#photo-1');">上传</a>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">项目简介:</label>
+            <div class="col-md-6 col-sm-10">
+                <textarea class="form-control" name="intro" >{$intro}</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">是否热门:</label>
+            <div class="col-md-6 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <php>$strMainMenuChecked=$is_hot?"checked":"";</php>
+                        <input  type="checkbox" name="is_hot" value="1" {$strMainMenuChecked} >
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary   js-ajax-submit">{:lang("SAVE")}</button>
+            <a class="btn btn-default" href="{:url('authe/index')}">返回</a>
+        </div>
+    </form>
+
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+<script src="__STATIC__/js/frontend.js"></script>
+</body>
+</html>
